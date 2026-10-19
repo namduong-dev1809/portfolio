@@ -84,6 +84,7 @@
   .head .num { display:inline-block; font-family:var(--mono); font-weight:800; font-size:.9rem; color:var(--on-accent); background:var(--accent); padding:2px 12px; border-radius:999px; }
   .head h2 { font-size:clamp(2rem,4.4vw,2.8rem); line-height:1.1; margin-top:10px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
+  .grid.services { grid-template-columns:repeat(2,1fr); } /* 4 price cards: 2×2 instead of 3+1 */
   .card { position:relative; background:var(--surface); border:3px solid var(--line); border-radius:var(--radius); padding:24px; overflow:hidden; box-shadow:var(--clay); transition:transform .3s var(--ease), border-color .3s; }
   .card:hover { transform:translateY(-6px) rotate(-.4deg); border-color:var(--line-strong); }
   .card h3 { font-size:1.35rem; line-height:1.25; margin-bottom:10px; }
@@ -153,7 +154,7 @@
     .bento { grid-template-columns:1fr; }
     .bento .tall { grid-row:auto; }
     .bento .wide { grid-column:auto; }
-    .grid, .featured { grid-template-columns:1fr; }
+    .grid, .grid.services, .featured { grid-template-columns:1fr; }
     .portrait .chip { left:12px; }
     section { padding:60px 0; }
   }
@@ -198,7 +199,7 @@
 
   <section id="services">
     <div class="head reveal"><span class="num">01 /</span><h2 data-vi="Dịch vụ &amp; bảng giá">Services &amp; Prices</h2></div>
-    <div class="grid">
+    <div class="grid services">
       <article class="card reveal">
         <span class="label" data-vi="Ra mắt nhanh">Quick launch</span>
         <h3 data-vi="Landing page 1 trang">One-page landing page</h3>
@@ -219,6 +220,17 @@
           <li>Service, course or product pages with photos and prices</li>
           <li>Sign-up or booking form, plus FAQ</li>
           <li>Delivered in about 8 days</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <span class="label" data-vi="Bớt việc tay">Less manual work</span>
+        <h3 data-vi="Tự động hóa với n8n">n8n automation</h3>
+        <p class="price" data-vi="từ $30">from $30</p>
+        <ul data-vi="&lt;li&gt;Đặt lịch → email xác nhận → Google Sheets hoặc CRM&lt;/li&gt;&lt;li&gt;Đăng ký → email chào mừng tự động&lt;/li&gt;&lt;li&gt;Chạy trên tài khoản n8n của bạn, kèm video hướng dẫn&lt;/li&gt;&lt;li&gt;Giao trong khoảng 3 ngày&lt;/li&gt;">
+          <li>Booking → confirmation email → Google Sheets or CRM</li>
+          <li>Sign-up → automatic welcome emails</li>
+          <li>Runs on your own n8n account, with a how-to video</li>
+          <li>Delivered in about 3 days</li>
         </ul>
       </article>
       <article class="card reveal">
