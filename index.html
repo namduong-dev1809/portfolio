@@ -54,8 +54,6 @@
 
   /* hero */
   .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:56px; align-items:center; padding:64px 0 56px; }
-  .tag { display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-weight:700; font-size:.9rem; color:var(--text); background:var(--surface); border:3px solid var(--line); padding:6px 14px; border-radius:999px; box-shadow:var(--clay); }
-  .tag::before { content:""; width:9px; height:9px; border-radius:50%; background:var(--accent); }
   .hero h1 { font-size:clamp(2.8rem,7.5vw,5rem); line-height:1; letter-spacing:-.01em; margin:22px 0 0; font-weight:800; }
   .hero h1 em { font-style:normal; color:var(--accent-text); }
   .hero .lead { color:var(--muted); font-size:1.15rem; max-width:560px; margin-top:20px; }
@@ -176,7 +174,6 @@
   <main id="top">
   <section class="hero">
     <div>
-      <span class="tag" data-vi="Làm website cho doanh nghiệp nhỏ · DUT">Websites for small businesses · DUT</span>
       <h1>Dương<br>Thành Nam<em>.</em></h1>
       <p class="uni">University of Science and Technology — The University of Da Nang</p>
       <p class="lead" data-vi="Mình làm landing page nhanh, đẹp trên điện thoại và tự động hóa bằng n8n cho coach, người bán khóa học và startup nhỏ. Mình cũng là sinh viên Hệ thống nhúng &amp; IoT tại Bách Khoa Đà Nẵng.">I build fast, mobile-friendly landing pages and n8n automations for coaches, course creators and small startups. I'm also an Embedded Systems &amp; IoT student at DUT.</p>
@@ -201,40 +198,36 @@
     <div class="head reveal"><span class="num">01 /</span><h2 data-vi="Dịch vụ &amp; bảng giá">Services &amp; Prices</h2></div>
     <div class="grid services">
       <article class="card reveal">
-        <span class="label" data-vi="Ra mắt nhanh">Quick launch</span>
         <h3 data-vi="Landing page 1 trang">One-page landing page</h3>
         <p class="price" data-vi="từ $45">from $45</p>
-        <ul data-vi="&lt;li&gt;Đẹp trên điện thoại và máy tính&lt;/li&gt;&lt;li&gt;Form thu email hoặc đăng ký, nút Zalo và email&lt;/li&gt;&lt;li&gt;Cài đặt hosting miễn phí&lt;/li&gt;&lt;li&gt;Giao trong khoảng 4 ngày&lt;/li&gt;">
+        <ul data-vi="&lt;li&gt;Đẹp trên điện thoại và máy tính&lt;/li&gt;&lt;li&gt;Form thu email hoặc đăng ký, nút Zalo và email&lt;/li&gt;&lt;li&gt;Cài đặt hosting miễn phí&lt;/li&gt;&lt;li&gt;Giao trong 1–2 ngày&lt;/li&gt;">
           <li>Looks great on phones and laptops</li>
           <li>Email sign-up form and contact buttons</li>
           <li>Free hosting set up for you</li>
-          <li>Delivered in about 4 days</li>
+          <li>Delivered in 1–2 days</li>
         </ul>
       </article>
       <article class="card reveal">
-        <span class="label" data-vi="Phổ biến nhất">Most popular</span>
         <h3 data-vi="Website tối đa 5 trang">Business website, up to 5 pages</h3>
         <p class="price" data-vi="từ $120">from $120</p>
-        <ul data-vi="&lt;li&gt;Song ngữ Việt – Anh cho khách nước ngoài&lt;/li&gt;&lt;li&gt;Trang dịch vụ, khóa học hoặc sản phẩm, có ảnh và giá&lt;/li&gt;&lt;li&gt;Form đăng ký hoặc đặt lịch hẹn, có FAQ&lt;/li&gt;&lt;li&gt;Giao trong khoảng 8 ngày&lt;/li&gt;">
+        <ul data-vi="&lt;li&gt;Song ngữ Việt – Anh cho khách nước ngoài&lt;/li&gt;&lt;li&gt;Trang dịch vụ, khóa học hoặc sản phẩm, có ảnh và giá&lt;/li&gt;&lt;li&gt;Form đăng ký hoặc đặt lịch hẹn, có FAQ&lt;/li&gt;&lt;li&gt;Giao trong 1–2 ngày&lt;/li&gt;">
           <li>Bilingual Vietnamese – English</li>
           <li>Service, course or product pages with photos and prices</li>
           <li>Sign-up or booking form, plus FAQ</li>
-          <li>Delivered in about 8 days</li>
+          <li>Delivered in 1–2 days</li>
         </ul>
       </article>
       <article class="card reveal">
-        <span class="label" data-vi="Bớt việc tay">Less manual work</span>
         <h3 data-vi="Tự động hóa với n8n">n8n automation</h3>
         <p class="price" data-vi="từ $30">from $30</p>
-        <ul data-vi="&lt;li&gt;Đặt lịch → email xác nhận → Google Sheets hoặc CRM&lt;/li&gt;&lt;li&gt;Đăng ký → email chào mừng tự động&lt;/li&gt;&lt;li&gt;Chạy trên tài khoản n8n của bạn, kèm video hướng dẫn&lt;/li&gt;&lt;li&gt;Giao trong khoảng 3 ngày&lt;/li&gt;">
+        <ul data-vi="&lt;li&gt;Đặt lịch → email xác nhận → Google Sheets hoặc CRM&lt;/li&gt;&lt;li&gt;Đăng ký → email chào mừng tự động&lt;/li&gt;&lt;li&gt;Chạy trên tài khoản n8n của bạn, kèm video hướng dẫn&lt;/li&gt;&lt;li&gt;Giao trong 1–2 ngày&lt;/li&gt;">
           <li>Booking → confirmation email → Google Sheets or CRM</li>
           <li>Sign-up → automatic welcome emails</li>
           <li>Runs on your own n8n account, with a how-to video</li>
-          <li>Delivered in about 3 days</li>
+          <li>Delivered in 1–2 days</li>
         </ul>
       </article>
       <article class="card reveal">
-        <span class="label" data-vi="Sau khi bàn giao">After launch</span>
         <h3 data-vi="Bảo trì &amp; cập nhật">Updates &amp; maintenance</h3>
         <p class="price" data-vi="$50/tháng">$50/mo</p>
         <ul data-vi="&lt;li&gt;Đổi chữ, ảnh, giá khi bạn cần&lt;/li&gt;&lt;li&gt;Sửa lỗi và giữ website luôn chạy&lt;/li&gt;&lt;li&gt;Nhắc gia hạn tên miền&lt;/li&gt;">
@@ -254,7 +247,6 @@
     <div class="grid featured">
       <article class="card reveal">
         <div class="media"><a href="https://mia-tran-coach.vercel.app" target="_blank" rel="noopener"><img src="images/mia-tran.png" alt="Home page of the Mia Tran coach landing page demo, with a free guide sign-up form and ebook cover" loading="lazy" width="1440" height="900"></a></div>
-        <span class="label" data-vi="Landing page cho coach · Next.js">Coach lead magnet page · Next.js</span>
         <h3>Mia Tran</h3>
         <p data-vi="Landing page tặng ebook để thu email cho một coach (giả định): bìa ebook dựng bằng CSS, form đăng ký kiểm tra từng ô, đồng hồ đếm ngược ưu đãi theo múi giờ người xem, rồi giới thiệu khóa học trả phí.">Free-guide landing page for a fictional coach: CSS-drawn ebook cover, validated sign-up form, an early-bird countdown in the visitor's time zone, then a paid course offer.</p>
         <div class="tags"><span>Next.js</span><span>Tailwind CSS</span><span>TypeScript</span><span>Lead magnet</span></div>
@@ -262,7 +254,6 @@
       </article>
       <article class="card reveal">
         <div class="media"><a href="https://noezz-caption.vercel.app" target="_blank" rel="noopener"><img src="images/caption.png" alt="Home page of the Noezz Caption launch page demo, with a caption generator box and waitlist form" loading="lazy" width="1440" height="900"></a></div>
-        <span class="label" data-vi="Trang ra mắt sản phẩm · Next.js">Product launch page · Next.js</span>
         <h3>Noezz Caption</h3>
         <p data-vi="Trang ra mắt và đăng ký waitlist cho một công cụ AI viết caption (giả định): ô dùng thử tạo 3 caption theo giọng văn và nền tảng, có hashtag và nút sao chép; đăng ký waitlist hiện số thứ tự.">Launch and waitlist page for a fictional AI caption tool: a working try-it box that writes three captions by tone and platform, with hashtags and copy buttons, plus a waitlist with a live position.</p>
         <div class="tags"><span>Next.js</span><span>Tailwind CSS</span><span>TypeScript</span><span>Launch page</span></div>
@@ -270,7 +261,6 @@
       </article>
       <article class="card reveal">
         <div class="media"><a href="https://noezz-notes.vercel.app" target="_blank" rel="noopener"><img src="images/notes.webp" alt="Home page of the Noezz Notes SaaS demo website" loading="lazy" width="960" height="600"></a></div>
-        <span class="label" data-vi="Landing page SaaS · Next.js">SaaS landing page · Next.js</span>
         <h3>Noezz Notes</h3>
         <p data-vi="Landing page cho một ứng dụng AI ghi chép cuộc họp (giả định): khung app có hiệu ứng dựng bằng code, bảng giá gạt Tháng/Năm, FAQ đóng mở và ô đăng ký email.">Landing page for a fictional AI meeting-notes app: animated app mock-up built in code, monthly/yearly pricing switch, FAQ accordion and email sign-up.</p>
         <div class="tags"><span>Next.js</span><span>Tailwind CSS</span><span>TypeScript</span><span>SaaS</span></div>
