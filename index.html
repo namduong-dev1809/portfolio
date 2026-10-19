@@ -236,6 +236,7 @@
         <h3>Autonomous Maze Runner Robot</h3>
         <p>Developed a navigation algorithm allowing the robot to autonomously detect and solve mazes. Optimized motor control via PWM for smoother turns and higher stability.</p>
         <div class="tags"><span>Arduino Uno</span><span>Ultrasonic Sensors</span><span>L298N</span><span>C++</span></div>
+        <p style="margin-top:14px"><a href="https://github.com/namduong-dev1809/maze-runner-robot" target="_blank" rel="noopener">View code on GitHub →</a></p>
       </article>
       <article class="card reveal">
         <div class="media"><img src="images/newton.webp" alt="Team holding the Newton's Cradle model" loading="lazy"></div>
@@ -254,7 +255,7 @@
         <span class="label">Hardware · Firmware</span>
         <h3>Maze Runner Robot: Bridging the Gap between Code and Hardware</h3>
         <p>Building an autonomous robot was my first real-world lesson in embedded logic. The biggest hurdle was sensor interference: the HC-SR04 sensors often gave erratic data due to wall reflections.</p>
-        <p><b>The fix:</b> digital filtering in C++ and recalibrated PWM signals for the L298N motor driver for smoother navigation.</p>
+        <p><b>The fix:</b> calibrated the PWM speed of each motor on the L298N so the robot drives straight, and added side-wall corrections. Later, in v2, I added an echo timeout and a short gap between sensor pings to stop crosstalk (<a href="https://github.com/namduong-dev1809/maze-runner-robot" target="_blank" rel="noopener">code on GitHub</a>).</p>
         <p><b>Takeaway:</b> hardware is unpredictable; robust firmware must account for physical environmental noise.</p>
       </article>
       <article class="card reveal">
