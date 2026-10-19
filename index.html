@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dương Thành Nam — Portfolio</title>
-<meta name="description" content="Embedded Systems & IoT student at Danang University of Science and Technology.">
+<title>Dương Thành Nam — Websites &amp; Embedded Systems</title>
+<meta name="description" content="Fast, mobile-friendly websites for small businesses in Da Nang. Embedded Systems & IoT student at DUT.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -47,6 +47,8 @@
   .links::-webkit-scrollbar { display:none; }
   .links a { color:var(--muted); text-decoration:none; font-size:.9rem; padding:8px 12px; border-radius:999px; white-space:nowrap; transition:color .2s, background .2s; }
   .links a:hover { color:var(--text); background:var(--surface-2); }
+  .lang { flex:none; min-width:44px; min-height:36px; font:600 .8rem var(--mono); color:var(--text); background:var(--surface-2); border:1px solid var(--line-strong); border-radius:999px; cursor:pointer; }
+  .lang:hover { border-color:var(--accent); }
 
   /* hero */
   .hero { display:grid; grid-template-columns:1.25fr .75fr; gap:56px; align-items:center; padding:64px 0 56px; }
@@ -96,6 +98,10 @@
   .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
   .tags span { font-family:var(--mono); font-size:.75rem; color:var(--text); background:var(--surface-2); border:1px solid var(--line); padding:4px 10px; border-radius:8px; }
   .featured { grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); }
+  .card .price { font-family:var(--mono); font-size:1.4rem; font-weight:700; color:var(--text); margin:4px 0 16px; }
+  .price small { font-size:.8rem; font-weight:400; color:var(--muted); }
+  .note { color:var(--muted); margin-top:24px; max-width:760px; }
+  .note b { color:var(--text); }
 
   /* bento skills */
   .bento { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
@@ -151,22 +157,23 @@
     <div class="bar">
       <a class="logo" href="#top">dtnam<span>.</span></a>
       <nav class="links" aria-label="Sections">
-        <a href="#projects">Projects</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#resume">Resume</a><a href="#pdp">PDP</a><a href="#contact">Contact</a>
+        <a href="#services" data-vi="Dịch vụ">Services</a><a href="#projects" data-vi="Dự án">Projects</a><a href="#education" data-vi="Học vấn">Education</a><a href="#skills" data-vi="Kỹ năng">Skills</a><a href="#about" data-vi="Giới thiệu">About</a><a href="#resume" data-vi="CV">Resume</a><a href="#pdp">PDP</a><a href="#contact" data-vi="Liên hệ">Contact</a>
       </nav>
+      <button class="lang" type="button">VI</button>
     </div>
   </header>
 
   <main id="top">
   <section class="hero">
     <div>
-      <span class="tag">Embedded Systems &amp; IoT · DUT</span>
+      <span class="tag" data-vi="Làm website cho doanh nghiệp nhỏ · DUT">Websites for small businesses · DUT</span>
       <h1>Dương<br>Thành Nam<em>.</em></h1>
       <p class="uni">University of Science and Technology — The University of Da Nang</p>
-      <p class="lead">Embedded Systems &amp; IoT student with a solid foundation in hardware design and firmware development. Passionate about Edge AI and autonomous robotics.</p>
+      <p class="lead" data-vi="Mình làm website nhanh, hiển thị đẹp trên điện thoại cho homestay, quán cà phê, spa và cửa hàng ở Đà Nẵng. Mình cũng là sinh viên Hệ thống nhúng &amp; IoT tại Bách Khoa Đà Nẵng.">I build fast, mobile-friendly websites for homestays, cafés, spas and local shops in Da Nang. I'm also an Embedded Systems &amp; IoT student at DUT.</p>
       <div class="actions">
-        <a class="btn primary" href="#projects">View projects
+        <a class="btn primary" href="#services"><span data-vi="Xem dịch vụ &amp; giá">See services &amp; prices</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn ghost" href="#contact">Contact me</a>
+        <a class="btn ghost" href="#contact" data-vi="Liên hệ">Contact me</a>
       </div>
       <div class="stats">
         <div><b>3rd</b><span>Provincial Physics Prize</span></div>
@@ -176,12 +183,52 @@
     </div>
     <div class="portrait">
       <img src="images/me.webp" alt="Portrait of Dương Thành Nam" width="960" height="1280">
-      <div class="chip"><b>$</b> building robots_</div>
+      <div class="chip"><b>$</b> building websites &amp; robots_</div>
     </div>
   </section>
 
+  <section id="services">
+    <div class="head reveal"><span class="num">01 /</span><h2 data-vi="Dịch vụ &amp; bảng giá">Services &amp; Prices</h2></div>
+    <div class="grid">
+      <article class="card reveal">
+        <span class="label" data-vi="Ra mắt nhanh">Quick launch</span>
+        <h3 data-vi="Landing page 1 trang">One-page landing page</h3>
+        <p class="price" data-vi="từ 2.000.000đ">from €250 <small>· 2,000,000 VND</small></p>
+        <ul data-vi="&lt;li&gt;Đẹp trên điện thoại và máy tính&lt;/li&gt;&lt;li&gt;Nút gọi, Zalo, email và Google Maps&lt;/li&gt;&lt;li&gt;Cài đặt hosting miễn phí&lt;/li&gt;&lt;li&gt;Giao trong khoảng 1 tuần&lt;/li&gt;">
+          <li>Looks great on phones and laptops</li>
+          <li>Call, email and Google Maps buttons</li>
+          <li>Free hosting set up for you</li>
+          <li>Delivered in about 1 week</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <span class="label" data-vi="Phổ biến nhất">Most popular</span>
+        <h3 data-vi="Website giới thiệu 4–6 trang">Business website, 4–6 pages</h3>
+        <p class="price" data-vi="từ 5.000.000đ">from €600 <small>· 5,000,000 VND</small></p>
+        <ul data-vi="&lt;li&gt;Song ngữ Việt – Anh cho khách nước ngoài&lt;/li&gt;&lt;li&gt;Trang phòng, menu hoặc dịch vụ, có ảnh và giá&lt;/li&gt;&lt;li&gt;Nhận yêu cầu đặt phòng/đặt bàn qua Zalo hoặc email&lt;/li&gt;&lt;li&gt;Giao trong 2–3 tuần&lt;/li&gt;">
+          <li>Bilingual Vietnamese – English</li>
+          <li>Rooms, menu or service pages with photos and prices</li>
+          <li>Booking requests by email or messaging app</li>
+          <li>Delivered in 2–3 weeks</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <span class="label" data-vi="Sau khi bàn giao">After launch</span>
+        <h3 data-vi="Bảo trì &amp; cập nhật">Updates &amp; maintenance</h3>
+        <p class="price" data-vi="từ 200.000đ/tháng">from €30/mo <small>· 200,000 VND</small></p>
+        <ul data-vi="&lt;li&gt;Đổi chữ, ảnh, giá khi bạn cần&lt;/li&gt;&lt;li&gt;Sửa lỗi và giữ website luôn chạy&lt;/li&gt;&lt;li&gt;Nhắc gia hạn tên miền&lt;/li&gt;">
+          <li>Text, photo and price changes on request</li>
+          <li>Bug fixes and keeping the site online</li>
+          <li>Domain renewal reminders</li>
+        </ul>
+      </article>
+    </div>
+    <p class="note reveal" data-vi="&lt;b&gt;2 khách hàng đầu tiên giảm 40%&lt;/b&gt;, đổi lại một đánh giá ngắn và cho phép đưa website vào đây. Tên miền (khoảng 300.000đ/năm) do khách tự trả.">
+      <b>First 2 clients get 40% off</b> in exchange for a short review and permission to show the site here. Domain name (about €12/year) is paid by the client.</p>
+  </section>
+
   <section id="projects">
-    <div class="head reveal"><span class="num">01 /</span><h2>Projects</h2></div>
+    <div class="head reveal"><span class="num">02 /</span><h2 data-vi="Dự án">Projects</h2></div>
     <div class="grid featured">
       <article class="card reveal">
         <div class="media"><img src="images/robot.png" alt="Maze Runner Robot with Arduino, ultrasonic sensors and wiring" loading="lazy"></div>
@@ -201,7 +248,7 @@
   </section>
 
   <section id="journal">
-    <div class="head reveal"><span class="num">02 /</span><h2>Learning Journal</h2></div>
+    <div class="head reveal"><span class="num">03 /</span><h2 data-vi="Nhật ký học tập">Learning Journal</h2></div>
     <div class="grid">
       <article class="card reveal">
         <span class="label">Hardware · Firmware</span>
@@ -219,7 +266,7 @@
   </section>
 
   <section id="education">
-    <div class="head reveal"><span class="num">03 /</span><h2>Education &amp; Activities</h2></div>
+    <div class="head reveal"><span class="num">04 /</span><h2 data-vi="Học vấn &amp; hoạt động">Education &amp; Activities</h2></div>
     <div class="grid">
       <div class="card reveal">
         <span class="label">Since Sep 2025</span>
@@ -237,7 +284,7 @@
   </section>
 
   <section id="skills">
-    <div class="head reveal"><span class="num">04 /</span><h2>Skills &amp; Languages</h2></div>
+    <div class="head reveal"><span class="num">05 /</span><h2 data-vi="Kỹ năng &amp; ngoại ngữ">Skills &amp; Languages</h2></div>
     <div class="bento">
       <div class="card reveal">
         <h3 class="ih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Programming</h3>
@@ -260,7 +307,7 @@
   </section>
 
   <section id="about">
-    <div class="head reveal"><span class="num">05 /</span><h2>About</h2></div>
+    <div class="head reveal"><span class="num">06 /</span><h2 data-vi="Giới thiệu">About</h2></div>
     <p class="quote reveal">A dedicated Embedded Systems &amp; IoT student at Danang University of Science and Technology (DUT). Combines technical rigor with strong teamwork and communication skills, currently aiming for a high IELTS band.</p>
     <div class="grid">
       <div class="card reveal">
@@ -308,7 +355,7 @@
   </section>
 
   <section id="resume">
-    <div class="head reveal"><span class="num">06 /</span><h2>Resume</h2></div>
+    <div class="head reveal"><span class="num">07 /</span><h2 data-vi="CV">Resume</h2></div>
     <div class="resume reveal">
       <a href="images/resume.webp" target="_blank" rel="noopener"><img src="images/resume.webp" alt="Resume of Dương Thành Nam" loading="lazy"></a>
       <div>
@@ -320,7 +367,7 @@
   </section>
 
   <section id="pdp">
-    <div class="head reveal"><span class="num">07 /</span><h2>Personal Development Plan</h2></div>
+    <div class="head reveal"><span class="num">08 /</span><h2 data-vi="Kế hoạch phát triển bản thân">Personal Development Plan</h2></div>
     <div class="grid">
       <div class="card reveal">
         <span class="label">Objective I</span>
@@ -349,12 +396,14 @@
 
   <section id="contact">
     <div class="contact reveal">
-      <span class="num head" style="font-family:var(--mono);color:var(--accent);font-size:.85rem">08 / Contact</span>
-      <h2>Let's build something together.</h2>
-      <p>Open to projects, study groups and internships in embedded systems &amp; IoT.</p>
+      <span class="num head" style="font-family:var(--mono);color:var(--accent);font-size:.85rem" data-vi="09 / Liên hệ">09 / Contact</span>
+      <h2 data-vi="Cần làm website? Nhắn mình nhé.">Need a website? Let's talk.</h2>
+      <p data-vi="Nhận làm website cho doanh nghiệp nhỏ ở Đà Nẵng và nước ngoài. Cũng sẵn sàng thực tập về hệ thống nhúng &amp; IoT.">Website projects for small businesses in Da Nang and abroad. Also open to internships in embedded systems &amp; IoT.</p>
       <div class="actions">
         <a class="btn primary" href="mailto:dtnam2007bk@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>dtnam2007bk@gmail.com</a>
+        <a class="btn ghost" href="https://github.com/namduong-dev1809" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.3 6.4-1.5 6.4-7a5.4 5.4 0 0 0-1.5-3.8 5 5 0 0 0-.1-3.8s-1.2-.3-3.9 1.5a13.4 13.4 0 0 0-7 0C6.3 1.6 5.1 2 5.1 2a5 5 0 0 0-.1 3.8A5.4 5.4 0 0 0 3.5 9.6c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-.9 2.6V23"/></svg>GitHub</a>
       </div>
     </div>
   </section>
@@ -368,6 +417,23 @@
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+  // VI/EN: elements with data-vi hold the Vietnamese HTML; English stays in the markup.
+  // shortcut: only client-facing parts (nav, hero, services, contact, headings) are translated, extend data-vi if needed
+  const langBtn = document.querySelector('.lang');
+  const tr = [...document.querySelectorAll('[data-vi]')];
+  tr.forEach(el => el.dataset.en = el.innerHTML);
+  function setLang(lang) {
+    tr.forEach(el => el.innerHTML = el.dataset[lang]);
+    document.documentElement.lang = lang;
+    langBtn.textContent = lang === 'vi' ? 'EN' : 'VI';
+    langBtn.setAttribute('aria-label', lang === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt');
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+  let saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  setLang(saved || (navigator.language.startsWith('vi') ? 'vi' : 'en'));
+  langBtn.addEventListener('click', () => setLang(document.documentElement.lang === 'vi' ? 'en' : 'vi'));
 </script>
 </body>
 </html>
