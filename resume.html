@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume — Dương Thành Nam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* One A4 page. Print it (Ctrl+P → Save as PDF) to get the PDF. */
+  @page { size: A4; margin: 0; }
+  :root { --ink:#3b302a; --brown:#8b6f5e; --beige:#e3dcd5; --text:#3f3f3f; --muted:#6b6b6b; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { background:#cfcac5; }
+  body { font-family:Roboto, Arial, sans-serif; font-weight:300; color:var(--text); font-size:13.2px; line-height:1.45; }
+  .page { width:210mm; height:297mm; margin:24px auto; background:#fff; position:relative; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,.2); }
+  @media print { html { background:#fff; } .page { margin:0; box-shadow:none; } }
+
+  .top { display:grid; grid-template-columns:1fr 78mm; height:68mm; margin-top:6mm; }
+  .name { background:var(--beige); padding:13mm 0 0 13mm; position:relative; }
+  .name h1 { font-family:"League Spartan", sans-serif; font-weight:700; font-size:44px; line-height:1; letter-spacing:.02em; color:var(--ink); text-transform:uppercase; }
+  .name .role { position:absolute; left:15mm; bottom:3mm; font-size:13px; letter-spacing:.42em; color:var(--ink); text-transform:uppercase; }
+  .name .role::before { content:""; display:block; width:52mm; border-top:2px solid var(--ink); margin-bottom:3mm; }
+  .photo { background:var(--brown); display:grid; place-items:center; }
+  .photo img { width:54mm; height:54mm; border-radius:50%; object-fit:cover; object-position:50% 18%; border:4px solid #fff; box-shadow:0 0 0 2px var(--ink); }
+
+  .body { display:grid; grid-template-columns:76mm 1fr; gap:9mm; padding:7mm 12mm 0 11mm; }
+  .side { border:1px solid #9a9a9a; padding:5mm 5mm 6mm; height:188mm; }
+  h2 { font-family:"League Spartan", sans-serif; font-weight:700; font-size:22px; color:var(--ink); text-transform:uppercase; letter-spacing:.01em; margin:0 0 2.5mm; }
+  .side h2 { margin-top:6mm; }
+  .side h2:first-child { margin-top:0; }
+  ul { padding-left:4.5mm; }
+  li + li { margin-top:1.4mm; }
+  b { font-weight:500; color:#2f2f2f; }
+  a { color:inherit; text-decoration:none; }
+  .main h2 { margin-top:6.5mm; }
+  .main h2:first-child { margin-top:0; }
+  .main .rule { border-top:2px solid var(--ink); margin:5mm 0 0; width:88%; }
+  .item { margin-top:2.6mm; }
+  .item > p:first-child { font-weight:400; color:#2f2f2f; }
+  .note { font-size:11.5px; color:var(--muted); margin-top:1.6mm; }
+
+  .bars { position:absolute; left:0; right:0; bottom:0; height:10mm; display:grid; grid-template-columns:76mm 1fr; }
+  .bars span:first-child { background:var(--brown); }
+  .bars span:last-child { background:var(--beige); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="name">
+      <h1>Dương<br>Thành Nam</h1>
+      <p class="role">DUT Student</p>
+    </div>
+    <div class="photo"><img src="images/me.webp" alt="Dương Thành Nam"></div>
+  </div>
+
+  <div class="body">
+    <aside class="side">
+      <h2>About me</h2>
+      <p>Embedded Systems &amp; IoT student who also builds fast, bilingual websites for small businesses. I bring an engineer's habit of testing everything to clean, mobile-friendly pages.</p>
+
+      <h2>Skills</h2>
+      <ul>
+        <li><b>Web:</b> HTML, CSS, Next.js, Tailwind CSS, Git, Vercel (AI-assisted development)</li>
+        <li><b>Embedded:</b> C/C++, Arduino, ultrasonic sensors, motor drivers</li>
+        <li><b>Soft skills:</b> teamwork, problem-solving, planning</li>
+      </ul>
+
+      <h2>Language</h2>
+      <ul>
+        <li>Vietnamese (native)</li>
+        <li>English (IELTS candidate)</li>
+      </ul>
+
+      <h2>Contact</h2>
+      <ul>
+        <!-- private-contact -->
+        <li>dtnam2007bk@gmail.com</li>
+        <li>duongthanhnam.vercel.app</li>
+        <li>github.com/namduong-dev1809</li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <h2>Education</h2>
+      <p>University of Science and Technology – The University of Da Nang (DUT) · Sep 2025 – now</p>
+      <p class="note">Bachelor of Engineering in Embedded Systems and Internet of Things (Advanced Program)</p>
+      <div class="rule"></div>
+
+      <h2>Web projects</h2>
+      <div class="item">
+        <p>Noezz Homestay · noezz-homestay.vercel.app</p>
+        <ul><li>Bilingual EN/VI 4-page website with a booking form that sends requests by WhatsApp or email.</li></ul>
+      </div>
+      <div class="item">
+        <p>Noezz Coffee · noezz-coffee.vercel.app</p>
+        <ul><li>One-page site with an auto-playing hero slider and a menu filtered by category tabs.</li></ul>
+      </div>
+      <div class="item">
+        <p>Noezz Spa · noezz-spa.vercel.app</p>
+        <ul><li>Landing page whose prices switch between 60 and 90 minutes; "Book this" pre-fills the booking form.</li></ul>
+      </div>
+      <p class="note">Demo sites for fictional businesses · Next.js, Tailwind CSS · Oct 2026</p>
+
+      <h2>Experience</h2>
+      <div class="item">
+        <p>Autonomous Maze Runner Robot (Nov – Dec 2025)</p>
+        <ul>
+          <li>Built a self-navigating robot that solves mazes with a wall-following algorithm.</li>
+          <li>Refactored the firmware to fix sensor timeout and crosstalk bugs (code on GitHub).</li>
+        </ul>
+      </div>
+      <div class="item">
+        <p>Team Leader / Member – University Projects</p>
+        <ul>
+          <li>Coordinated an 8-member team to deliver technical reports and major assignments.</li>
+        </ul>
+      </div>
+
+      <h2>Achievements</h2>
+      <ul>
+        <li>Third Prize, Provincial Physics Competition (Grade 12)</li>
+        <li>Fast Cup 2026, DUT football tournament</li>
+      </ul>
+    </main>
+  </div>
+  <div class="bars"><span></span><span></span></div>
+</div>
+</body>
+</html>
