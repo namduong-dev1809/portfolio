@@ -82,7 +82,7 @@
   .head .num { display:inline-block; font-family:var(--mono); font-weight:800; font-size:.9rem; color:var(--on-accent); background:var(--accent); padding:2px 12px; border-radius:999px; }
   .head h2 { font-size:clamp(2rem,4.4vw,2.8rem); line-height:1.1; margin-top:10px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
-  .grid.services { grid-template-columns:repeat(2,1fr); } /* 4 price cards: 2×2 instead of 3+1 */
+  .grid.services { grid-template-columns:repeat(2,1fr); } /* 4 service cards: 2×2 instead of 3+1 */
   .card { position:relative; background:var(--surface); border:3px solid var(--line); border-radius:var(--radius); padding:24px; overflow:hidden; box-shadow:var(--clay); transition:transform .3s var(--ease), border-color .3s; }
   .card:hover { transform:translateY(-6px) rotate(-.4deg); border-color:var(--line-strong); }
   .card h3 { font-size:1.35rem; line-height:1.25; margin-bottom:10px; }
@@ -104,8 +104,6 @@
   .featured { grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); } /* auto-fill: a lone card keeps card width */
   .subhead { font-family:var(--mono); font-size:1.1rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin:0 0 18px; }
   .featured + .subhead { margin-top:48px; }
-  .card .price { font-family:var(--mono); font-size:1.7rem; font-weight:800; color:var(--text); margin:4px 0 16px; }
-  .price small { font-family:var(--sans); font-size:.85rem; font-weight:600; color:var(--muted); }
   .note { color:var(--muted); margin-top:24px; max-width:760px; }
   .note b { color:var(--body); }
 
@@ -178,7 +176,7 @@
       <p class="uni">University of Science and Technology — The University of Da Nang</p>
       <p class="lead" data-vi="Mình làm landing page nhanh, đẹp trên điện thoại và tự động hóa bằng n8n cho coach, người bán khóa học và startup nhỏ. Mình cũng là sinh viên Hệ thống nhúng &amp; IoT tại Bách Khoa Đà Nẵng.">I build fast, mobile-friendly landing pages and n8n automations for coaches, course creators and small startups. I'm also an Embedded Systems &amp; IoT student at DUT.</p>
       <div class="actions">
-        <a class="btn primary" href="#services"><span data-vi="Xem dịch vụ &amp; giá">See services &amp; prices</span>
+        <a class="btn primary" href="#services"><span data-vi="Xem dịch vụ">See services</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn ghost" href="#contact" data-vi="Liên hệ">Contact me</a>
       </div>
@@ -195,11 +193,10 @@
   </section>
 
   <section id="services">
-    <div class="head reveal"><span class="num">01 /</span><h2 data-vi="Dịch vụ &amp; bảng giá">Services &amp; Prices</h2></div>
+    <div class="head reveal"><span class="num">01 /</span><h2 data-vi="Dịch vụ">Services</h2></div>
     <div class="grid services">
       <article class="card reveal">
         <h3 data-vi="Landing page 1 trang">One-page landing page</h3>
-        <p class="price" data-vi="từ $45">from $45</p>
         <ul data-vi="&lt;li&gt;Đẹp trên điện thoại và máy tính&lt;/li&gt;&lt;li&gt;Form thu email hoặc đăng ký, nút Zalo và email&lt;/li&gt;&lt;li&gt;Cài đặt hosting miễn phí&lt;/li&gt;&lt;li&gt;Giao trong 1–2 ngày&lt;/li&gt;">
           <li>Looks great on phones and laptops</li>
           <li>Email sign-up form and contact buttons</li>
@@ -209,7 +206,6 @@
       </article>
       <article class="card reveal">
         <h3 data-vi="Website tối đa 5 trang">Business website, up to 5 pages</h3>
-        <p class="price" data-vi="từ $120">from $120</p>
         <ul data-vi="&lt;li&gt;Song ngữ Việt – Anh cho khách nước ngoài&lt;/li&gt;&lt;li&gt;Trang dịch vụ, khóa học hoặc sản phẩm, có ảnh và giá&lt;/li&gt;&lt;li&gt;Form đăng ký hoặc đặt lịch hẹn, có FAQ&lt;/li&gt;&lt;li&gt;Giao trong 1–2 ngày&lt;/li&gt;">
           <li>Bilingual Vietnamese – English</li>
           <li>Service, course or product pages with photos and prices</li>
@@ -219,7 +215,6 @@
       </article>
       <article class="card reveal">
         <h3 data-vi="Tự động hóa với n8n">n8n automation</h3>
-        <p class="price" data-vi="từ $30">from $30</p>
         <ul data-vi="&lt;li&gt;Đặt lịch → email xác nhận → Google Sheets hoặc CRM&lt;/li&gt;&lt;li&gt;Đăng ký → email chào mừng tự động&lt;/li&gt;&lt;li&gt;Chạy trên tài khoản n8n của bạn, kèm video hướng dẫn&lt;/li&gt;&lt;li&gt;Giao trong 1–2 ngày&lt;/li&gt;">
           <li>Booking → confirmation email → Google Sheets or CRM</li>
           <li>Sign-up → automatic welcome emails</li>
@@ -229,7 +224,6 @@
       </article>
       <article class="card reveal">
         <h3 data-vi="Bảo trì &amp; cập nhật">Updates &amp; maintenance</h3>
-        <p class="price" data-vi="$50/tháng">$50/mo</p>
         <ul data-vi="&lt;li&gt;Đổi chữ, ảnh, giá khi bạn cần&lt;/li&gt;&lt;li&gt;Sửa lỗi và giữ website luôn chạy&lt;/li&gt;&lt;li&gt;Nhắc gia hạn tên miền&lt;/li&gt;">
           <li>Text, photo and price changes on request</li>
           <li>Bug fixes and keeping the site online</li>
@@ -237,8 +231,8 @@
         </ul>
       </article>
     </div>
-    <p class="note reveal" data-vi="&lt;b&gt;Giá khởi điểm cho những khách hàng đầu tiên&lt;/b&gt;, đổi lại một đánh giá ngắn và cho phép đưa website vào đây. Tên miền (khoảng $12/năm) do khách tự trả. Thời gian giao tính từ lúc mình nhận đủ nội dung (chữ, ảnh, logo) hoặc quyền truy cập công cụ.">
-      <b>Starter prices for my first clients</b>, in exchange for a short review and permission to show the site here. Domain name (about $12/year) is paid by the client. Delivery time starts once I have all your content (texts, photos, logo) or access to your tools.</p>
+    <p class="note reveal" data-vi="&lt;b&gt;Nhắn mình mô tả dự án, mình gửi báo giá trong vòng 1 ngày.&lt;/b&gt; Thời gian giao tính từ lúc mình nhận đủ nội dung (chữ, ảnh, logo) hoặc quyền truy cập công cụ.">
+      <b>Message me about your project and I'll send a quote within a day.</b> Delivery time starts once I have all your content (texts, photos, logo) or access to your tools.</p>
   </section>
 
   <section id="projects">
