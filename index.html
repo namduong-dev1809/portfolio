@@ -3,158 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dương Thành Nam — Websites &amp; Embedded Systems</title>
-<meta name="description" content="Fast, mobile-friendly websites for small businesses in Da Nang. Embedded Systems & IoT student at DUT.">
+<title>Dương Thành Nam — Google Sheets Automation &amp; Websites</title>
+<meta name="description" content="Google Sheets automations with Apps Script, landing pages and n8n workflows for small businesses. Embedded Systems &amp; IoT student at DUT, Da Nang.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  /* Design system: ui-ux-pro-max "Claymorphism" + "Playful orange + trust blue" palette.
-     Headings use Baloo 2 instead of the suggested Fredoka because Fredoka has no Vietnamese glyphs. */
-  :root {
-    color-scheme: light;
-    --bg:#fff7ed; --surface:#ffffff; --surface-2:#ffedd5;
-    --line:#fed7aa; --line-strong:#fdba74;
-    --text:#9a3412; --body:#431407; --muted:#475569;
-    --accent:#f97316; --accent-text:#ea580c; --accent-soft:#ffedd5; --on-accent:#0f172a;
-    --cta:#2563eb; --on-cta:#ffffff;
-    --mono:"Baloo 2",system-ui,sans-serif;
-    --sans:"Nunito",system-ui,"Segoe UI",sans-serif;
-    --radius:24px; --ease:cubic-bezier(.34,1.56,.64,1);
-    /* clay: soft outer shadow + inner highlight/shade */
-    --clay: 0 10px 24px -8px rgba(234,88,12,.25), inset 0 -4px 0 rgba(154,52,18,.06), inset 0 3px 0 rgba(255,255,255,.9);
-    --clay-press: 0 4px 10px -4px rgba(234,88,12,.3), inset 0 2px 0 rgba(154,52,18,.08);
-  }
-  * { box-sizing:border-box; margin:0; }
-  html { scroll-behavior:smooth; scroll-padding-top:90px; }
-  body {
-    font-family:var(--sans); color:var(--body); line-height:1.65; font-size:16px;
-    background:
-      radial-gradient(520px 360px at 92% 4%, rgba(251,146,60,.28), transparent 70%),
-      radial-gradient(460px 340px at -6% 28%, rgba(37,99,235,.12), transparent 70%),
-      var(--bg);
-  }
-  h1, h2, h3 { font-family:var(--mono); color:var(--text); font-weight:700; }
-  a { color:var(--cta); }
-  img { max-width:100%; }
-  :focus-visible { outline:3px solid var(--cta); outline-offset:3px; border-radius:10px; }
-  .wrap { max-width:1120px; margin:0 auto; padding:0 20px; }
-
-  /* nav */
-  .nav { position:sticky; top:12px; z-index:10; margin-top:12px; }
-  .nav .bar { display:flex; align-items:center; gap:16px; padding:10px 12px 10px 20px; border:3px solid var(--line); border-radius:999px; background:rgba(255,255,255,.88); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); box-shadow:var(--clay); }
-  .logo { font-family:var(--mono); font-weight:800; font-size:1.25rem; color:var(--text); text-decoration:none; white-space:nowrap; }
-  .logo span { color:var(--accent-text); }
-  .links { display:flex; gap:2px; margin-left:auto; overflow-x:auto; scrollbar-width:none; }
-  .links::-webkit-scrollbar { display:none; }
-  .links a { color:var(--muted); font-weight:700; text-decoration:none; font-size:.92rem; padding:8px 12px; border-radius:999px; white-space:nowrap; transition:color .2s, background .2s; }
-  .links a:hover { color:var(--text); background:var(--surface-2); }
-  .lang { flex:none; min-width:44px; min-height:40px; font:700 .85rem var(--mono); color:var(--on-cta); background:var(--cta); border:0; border-radius:999px; cursor:pointer; box-shadow:var(--clay); transition:transform .2s var(--ease); }
-  .lang:hover { transform:translateY(-2px); }
-
-  /* hero */
-  .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:56px; align-items:center; padding:64px 0 56px; }
-  .hero h1 { font-size:clamp(2.8rem,7.5vw,5rem); line-height:1; letter-spacing:-.01em; margin:22px 0 0; font-weight:800; }
-  .hero h1 em { font-style:normal; color:var(--accent-text); }
-  .hero .lead { color:var(--muted); font-size:1.15rem; max-width:560px; margin-top:20px; }
-  .uni { font-weight:700; font-size:.9rem; color:var(--muted); margin-top:14px; }
-  .actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:32px; }
-  .btn { display:inline-flex; align-items:center; gap:8px; min-height:48px; padding:0 24px; border-radius:16px; font-weight:800; text-decoration:none; cursor:pointer; box-shadow:var(--clay); transition:transform .2s var(--ease), box-shadow .2s ease-out, background .2s; }
-  .btn:hover { transform:translateY(-3px); }
-  .btn:active { transform:translateY(1px); box-shadow:var(--clay-press); }
-  .btn.primary { background:var(--cta); color:var(--on-cta); }
-  .btn.primary:hover { background:#1d4ed8; }
-  .btn.ghost { color:var(--text); background:var(--surface); border:3px solid var(--line); }
-  .btn.ghost:hover { border-color:var(--accent); }
-  .btn svg { width:18px; height:18px; }
-  .stats { display:flex; flex-wrap:wrap; gap:16px; margin-top:44px; }
-  .stats > div { background:var(--surface); border:3px solid var(--line); border-radius:20px; padding:12px 18px; box-shadow:var(--clay); }
-  .stats b { display:block; font-family:var(--mono); font-size:1.5rem; line-height:1.2; color:var(--accent-text); }
-  .stats span { color:var(--muted); font-size:.85rem; font-weight:600; }
-  .portrait { position:relative; justify-self:end; width:100%; max-width:380px; }
-  .portrait img { display:block; width:100%; height:auto; aspect-ratio:1; object-fit:cover; object-position:50% 20%; border-radius:36px; border:6px solid var(--surface); box-shadow:0 24px 50px -18px rgba(234,88,12,.45); transform:rotate(2deg); }
-  .portrait .chip { position:absolute; left:-18px; bottom:28px; font-family:var(--mono); font-weight:700; font-size:.9rem; color:var(--text); background:var(--surface); border:3px solid var(--line); padding:10px 16px; border-radius:16px; box-shadow:var(--clay); }
-  .portrait .chip b { color:var(--cta); }
-
-  /* sections */
-  section { padding:80px 0; }
-  .head { margin-bottom:36px; }
-  .head .num { display:inline-block; font-family:var(--mono); font-weight:800; font-size:.9rem; color:var(--on-accent); background:var(--accent); padding:2px 12px; border-radius:999px; }
-  .head h2 { font-size:clamp(2rem,4.4vw,2.8rem); line-height:1.1; margin-top:10px; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
-  .grid.services { grid-template-columns:repeat(2,1fr); } /* 4 service cards: 2×2 instead of 3+1 */
-  .card { position:relative; background:var(--surface); border:3px solid var(--line); border-radius:var(--radius); padding:24px; overflow:hidden; box-shadow:var(--clay); transition:transform .3s var(--ease), border-color .3s; }
-  .card:hover { transform:translateY(-6px) rotate(-.4deg); border-color:var(--line-strong); }
-  .card h3 { font-size:1.35rem; line-height:1.25; margin-bottom:10px; }
-  .card p, .card li { color:var(--muted); }
-  .card p + p, .card p + ul { margin-top:10px; }
-  .card b { color:var(--body); font-weight:800; }
-  .card .media { margin:-24px -24px 22px; overflow:hidden; aspect-ratio:16/10; background:var(--surface-2); border-bottom:3px solid var(--line); }
-  .card .media img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
-  .card:hover .media img { transform:scale(1.04); }
-  .card .media.whole { aspect-ratio:auto; }
-  .label { font-family:var(--mono); font-weight:700; font-size:.85rem; color:var(--text); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; display:block; }
-  .meta { font-weight:700; font-size:.85rem; }
-  ul { padding-left:0; list-style:none; }
-  li { position:relative; padding-left:20px; }
-  li + li { margin-top:8px; }
-  li::before { content:""; position:absolute; left:0; top:.6em; width:9px; height:9px; border-radius:50%; background:var(--accent); }
-  .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
-  .tags span { font-weight:700; font-size:.8rem; color:var(--text); background:var(--surface-2); padding:4px 12px; border-radius:999px; }
-  .featured { grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); } /* auto-fill: a lone card keeps card width */
-  .subhead { font-family:var(--mono); font-size:1.1rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin:0 0 18px; }
-  .featured + .subhead { margin-top:48px; }
-  .note { color:var(--muted); margin-top:24px; max-width:760px; }
-  .note b { color:var(--body); }
-
-  /* bento skills */
-  .bento { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-  .bento .tall { grid-row:span 2; }
-  .bento .wide { grid-column:span 2; }
-  .ih { display:flex; align-items:center; gap:12px; }
-  .ih svg { width:36px; height:36px; padding:7px; flex:none; color:var(--on-cta); background:var(--cta); border-radius:12px; }
-
-  .quote { font-family:var(--mono); font-weight:600; font-size:clamp(1.3rem,2.6vw,1.7rem); line-height:1.4; max-width:820px; margin-bottom:32px; color:var(--text); }
-  .quote::before { content:"\201C"; color:var(--accent); font-size:2em; line-height:0; vertical-align:-.35em; margin-right:4px; }
-
-  .resume { display:grid; grid-template-columns:minmax(0,560px) 1fr; gap:40px; align-items:start; }
-  .resume img { display:block; width:100%; border-radius:var(--radius); border:3px solid var(--line); box-shadow:var(--clay); }
-  .resume p { color:var(--muted); margin-bottom:24px; }
-
-  .contact { text-align:center; padding:56px 24px; border:3px solid var(--line); border-radius:32px; background:radial-gradient(500px 220px at 50% 0%, rgba(251,146,60,.25), transparent 70%), var(--surface); box-shadow:var(--clay); }
-  .contact h2 { font-size:clamp(2rem,5vw,3.2rem); line-height:1.1; }
-  .contact p { color:var(--muted); margin-top:12px; }
-  .contact .actions { justify-content:center; }
-
-  footer { padding:40px 0 56px; color:var(--muted); font-weight:600; font-size:.85rem; text-align:center; }
-
-  /* reveal on scroll; only hidden when JS is running */
-  .js .reveal { opacity:0; transform:translateY(20px) scale(.97); transition:opacity .45s ease-out, transform .45s var(--ease); }
-  .js .reveal.in { opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior:auto; }
-    .js .reveal { opacity:1; transform:none; transition:none; }
-    .card, .card .media img, .btn, .lang { transition:none; }
-    .card:hover, .btn:hover { transform:none; }
-    .portrait img { transform:none; }
-  }
-
-  @media (max-width:900px) {
-    .hero { grid-template-columns:1fr; gap:40px; padding-top:56px; }
-    .portrait { max-width:300px; justify-self:start; }
-    .bento { grid-template-columns:1fr 1fr; }
-    .resume { grid-template-columns:1fr; }
-  }
-  @media (max-width:600px) {
-    .nav .bar { padding-left:14px; }
-    .bento { grid-template-columns:1fr; }
-    .bento .tall { grid-row:auto; }
-    .bento .wide { grid-column:auto; }
-    .grid, .grid.services, .featured { grid-template-columns:1fr; }
-    .portrait .chip { left:12px; }
-    section { padding:60px 0; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <script>document.documentElement.classList.add('js')</script>
@@ -163,7 +17,7 @@
     <div class="bar">
       <a class="logo" href="#top">dtnam<span>.</span></a>
       <nav class="links" aria-label="Sections">
-        <a href="#services" data-vi="Dịch vụ">Services</a><a href="#projects" data-vi="Dự án">Projects</a><a href="#education" data-vi="Học vấn">Education</a><a href="#skills" data-vi="Kỹ năng">Skills</a><a href="#about" data-vi="Giới thiệu">About</a><a href="#resume" data-vi="CV">Resume</a><a href="#pdp">PDP</a><a href="#contact" data-vi="Liên hệ">Contact</a>
+        <a href="#services" data-vi="Dịch vụ">Services</a><a href="#projects" data-vi="Dự án">Projects</a><a href="#skills" data-vi="Kỹ năng">Skills</a><a href="#contact" data-vi="Liên hệ">Contact</a><a href="about.html" data-vi="Về mình">About me</a>
       </nav>
       <button class="lang" type="button">VI</button>
     </div>
@@ -174,21 +28,21 @@
     <div>
       <h1>Dương<br>Thành Nam<em>.</em></h1>
       <p class="uni">University of Science and Technology — The University of Da Nang</p>
-      <p class="lead" data-vi="Mình làm landing page nhanh, đẹp trên điện thoại và tự động hóa bằng n8n cho coach, người bán khóa học và startup nhỏ. Mình cũng là sinh viên Hệ thống nhúng &amp; IoT tại Bách Khoa Đà Nẵng.">I build fast, mobile-friendly landing pages and n8n automations for coaches, course creators and small startups. I'm also an Embedded Systems &amp; IoT student at DUT.</p>
+      <p class="lead" data-vi="Mình làm tự động hóa Google Sheets bằng Apps Script, landing page và quy trình n8n cho doanh nghiệp nhỏ: bớt việc nhập tay, khách hàng tìm thấy bạn dễ hơn. Mình đang học Hệ thống nhúng &amp; IoT tại Bách Khoa Đà Nẵng.">I build Google Sheets automations with Apps Script, landing pages and n8n workflows for small businesses: less manual work, and customers who can actually find you. I'm also an Embedded Systems &amp; IoT student at DUT.</p>
       <div class="actions">
         <a class="btn primary" href="#services"><span data-vi="Xem dịch vụ">See services</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn ghost" href="#contact" data-vi="Liên hệ">Contact me</a>
       </div>
       <div class="stats">
-        <div><b>3rd</b><span>Provincial Physics Prize</span></div>
-        <div><b>8</b><span>Member team projects</span></div>
-        <div><b>6.5+</b><span>IELTS target</span></div>
+        <div><b>3</b><span data-vi="Tự động hóa Sheets có test">Tested Sheets automations</span></div>
+        <div><b>3</b><span data-vi="Website demo đang chạy">Live demo websites</span></div>
+        <div><b>GMT+7</b><span data-vi="Đà Nẵng · Việt &amp; Anh">Da Nang · English &amp; Vietnamese</span></div>
       </div>
     </div>
     <div class="portrait">
       <img src="images/me.webp" alt="Portrait of Dương Thành Nam" width="960" height="1280">
-      <div class="chip"><b>$</b> building websites &amp; robots_</div>
+      <div class="chip"><b>$</b> automating sheets &amp; building sites_</div>
     </div>
   </section>
 
@@ -196,47 +50,62 @@
     <div class="head reveal"><span class="num">01 /</span><h2 data-vi="Dịch vụ">Services</h2></div>
     <div class="grid services">
       <article class="card reveal">
+        <h3 data-vi="Tự động hóa Google Sheets">Google Sheets automation</h3>
+        <ul data-vi="&lt;li&gt;Form → hóa đơn PDF → email, báo cáo tự gửi hằng ngày, cảnh báo hết hàng&lt;/li&gt;&lt;li&gt;Viết bằng Google Apps Script, chạy ngay trong tài khoản Google của bạn&lt;/li&gt;&lt;li&gt;Dòng lỗi được đánh dấu, không âm thầm bỏ qua&lt;/li&gt;&lt;li&gt;Kèm hướng dẫn 1 trang · thường 2–4 ngày&lt;/li&gt;">
+          <li>Form → PDF invoice → email, daily report emails, low-stock alerts</li>
+          <li>Built with Google Apps Script, runs inside your own Google account</li>
+          <li>Bad rows are flagged, never silently skipped</li>
+          <li>One-page guide included · usually 2–4 days</li>
+        </ul>
+      </article>
+      <article class="card reveal">
         <h3 data-vi="Landing page 1 trang">One-page landing page</h3>
-        <ul data-vi="&lt;li&gt;Đẹp trên điện thoại và máy tính&lt;/li&gt;&lt;li&gt;Form thu email hoặc đăng ký, nút Zalo và email&lt;/li&gt;&lt;li&gt;Cài đặt hosting miễn phí&lt;/li&gt;&lt;li&gt;Giao trong 1–2 ngày&lt;/li&gt;">
+        <ul data-vi="&lt;li&gt;Đẹp trên điện thoại và máy tính&lt;/li&gt;&lt;li&gt;Form thu email hoặc đăng ký, nút Zalo và email&lt;/li&gt;&lt;li&gt;Cài đặt hosting miễn phí&lt;/li&gt;&lt;li&gt;Thường 2–3 ngày&lt;/li&gt;">
           <li>Looks great on phones and laptops</li>
           <li>Email sign-up form and contact buttons</li>
           <li>Free hosting set up for you</li>
-          <li>Delivered in 1–2 days</li>
+          <li>Usually 2–3 days</li>
         </ul>
       </article>
       <article class="card reveal">
         <h3 data-vi="Website tối đa 5 trang">Business website, up to 5 pages</h3>
-        <ul data-vi="&lt;li&gt;Song ngữ Việt – Anh cho khách nước ngoài&lt;/li&gt;&lt;li&gt;Trang dịch vụ, khóa học hoặc sản phẩm, có ảnh và giá&lt;/li&gt;&lt;li&gt;Form đăng ký hoặc đặt lịch hẹn, có FAQ&lt;/li&gt;&lt;li&gt;Giao trong 1–2 ngày&lt;/li&gt;">
+        <ul data-vi="&lt;li&gt;Song ngữ Việt – Anh cho khách nước ngoài&lt;/li&gt;&lt;li&gt;Trang dịch vụ, khóa học hoặc sản phẩm, có ảnh và giá&lt;/li&gt;&lt;li&gt;Form đăng ký hoặc đặt lịch hẹn, có FAQ&lt;/li&gt;&lt;li&gt;Thường 5–7 ngày&lt;/li&gt;">
           <li>Bilingual Vietnamese – English</li>
           <li>Service, course or product pages with photos and prices</li>
           <li>Sign-up or booking form, plus FAQ</li>
-          <li>Delivered in 1–2 days</li>
+          <li>Usually 5–7 days</li>
         </ul>
       </article>
       <article class="card reveal">
         <h3 data-vi="Tự động hóa với n8n">n8n automation</h3>
-        <ul data-vi="&lt;li&gt;Đặt lịch → email xác nhận → Google Sheets hoặc CRM&lt;/li&gt;&lt;li&gt;Đăng ký → email chào mừng tự động&lt;/li&gt;&lt;li&gt;Chạy trên tài khoản n8n của bạn, kèm video hướng dẫn&lt;/li&gt;&lt;li&gt;Giao trong 1–2 ngày&lt;/li&gt;">
+        <ul data-vi="&lt;li&gt;Đặt lịch → email xác nhận → Google Sheets hoặc CRM&lt;/li&gt;&lt;li&gt;Đăng ký → email chào mừng tự động&lt;/li&gt;&lt;li&gt;Chạy trên tài khoản n8n của bạn, kèm video hướng dẫn&lt;/li&gt;&lt;li&gt;Thường 2–4 ngày&lt;/li&gt;">
           <li>Booking → confirmation email → Google Sheets or CRM</li>
           <li>Sign-up → automatic welcome emails</li>
           <li>Runs on your own n8n account, with a how-to video</li>
-          <li>Delivered in 1–2 days</li>
-        </ul>
-      </article>
-      <article class="card reveal">
-        <h3 data-vi="Bảo trì &amp; cập nhật">Updates &amp; maintenance</h3>
-        <ul data-vi="&lt;li&gt;Đổi chữ, ảnh, giá khi bạn cần&lt;/li&gt;&lt;li&gt;Sửa lỗi và giữ website luôn chạy&lt;/li&gt;&lt;li&gt;Nhắc gia hạn tên miền&lt;/li&gt;">
-          <li>Text, photo and price changes on request</li>
-          <li>Bug fixes and keeping the site online</li>
-          <li>Domain renewal reminders</li>
+          <li>Usually 2–4 days</li>
         </ul>
       </article>
     </div>
-    <p class="note reveal" data-vi="&lt;b&gt;Nhắn mình mô tả dự án, mình gửi báo giá trong vòng 1 ngày.&lt;/b&gt; Thời gian giao tính từ lúc mình nhận đủ nội dung (chữ, ảnh, logo) hoặc quyền truy cập công cụ.">
-      <b>Message me about your project and I'll send a quote within a day.</b> Delivery time starts once I have all your content (texts, photos, logo) or access to your tools.</p>
+    <p class="note reveal" data-vi="&lt;b&gt;Nhắn mình mô tả dự án, mình gửi báo giá trong vòng 1 ngày.&lt;/b&gt; Thời gian giao tính từ lúc mình nhận đủ nội dung (chữ, ảnh, logo) hoặc quyền truy cập công cụ. Sau khi giao, mình nhận cập nhật nội dung, sửa lỗi và giữ website luôn chạy.">
+      <b>Message me about your project and I'll send a quote within a day.</b> Delivery time starts once I have all your content (texts, photos, logo) or access to your tools. After delivery I can handle updates, fixes and keeping things running.</p>
   </section>
 
   <section id="projects">
     <div class="head reveal"><span class="num">02 /</span><h2 data-vi="Dự án">Projects</h2></div>
+    <h3 class="subhead reveal" data-vi="Tự động hóa">Automations</h3>
+    <div class="grid featured">
+      <article class="card reveal">
+        <span class="label">Google Apps Script</span>
+        <h3 data-vi="3 tự động hóa Google Sheets">Three Google Sheets automations</h3>
+        <ul data-vi="&lt;li&gt;&lt;b&gt;Form → hóa đơn:&lt;/b&gt; mỗi lần gửi form tạo một hóa đơn PDF có số thứ tự, lưu Drive và email cho khách; giá lấy từ bảng Sản phẩm của bạn.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Báo cáo doanh số mỗi tối:&lt;/b&gt; doanh thu, số đơn, top 3 sản phẩm và so với cùng thứ tuần trước.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Cảnh báo hết hàng:&lt;/b&gt; kiểm tra mỗi giờ, một email tổng hợp, không báo trùng.&lt;/li&gt;">
+          <li><b>Form → invoice:</b> each form submission becomes a numbered PDF invoice, saved to Drive and emailed; prices come from your own Products sheet.</li>
+          <li><b>Nightly sales summary:</b> revenue, orders, top 3 products and the change vs the same weekday last week.</li>
+          <li><b>Low-stock alert:</b> hourly check, one digest email, no repeat alerts.</li>
+        </ul>
+        <div class="tags"><span>Apps Script</span><span>Google Sheets</span><span>Gmail</span><span>34 unit tests</span></div>
+        <p style="margin-top:14px"><a href="https://github.com/namduong-dev1809/upwork-demos" target="_blank" rel="noopener" data-vi="Xem mã nguồn và hướng dẫn cài →">Code and setup guides →</a></p>
+      </article>
+    </div>
     <h3 class="subhead reveal" data-vi="Website">Websites</h3>
     <div class="grid featured">
       <article class="card reveal">
@@ -261,182 +130,57 @@
         <p style="margin-top:14px"><a href="https://noezz-notes.vercel.app" target="_blank" rel="noopener" data-vi="Xem website →">View live site →</a> · <a href="https://github.com/namduong-dev1809/noezz-notes" target="_blank" rel="noopener" data-vi="Mã nguồn">Code</a></p>
       </article>
     </div>
-    <h3 class="subhead reveal" data-vi="Dự án ở trường">School projects</h3>
+    <h3 class="subhead reveal" data-vi="Nhúng &amp; IoT">Embedded &amp; IoT</h3>
     <div class="grid featured">
+      <article class="card reveal">
+        <span class="label">AI · Arduino · ESP32</span>
+        <h3>NoStackTrace</h3>
+        <p data-vi="Trợ lý gỡ lỗi bằng AI cho bài lab Arduino Uno và ESP32: tự chèn trace vào sketch, bạn chạy trên Wokwi hoặc board thật, và chẩn đoán dựa trên những gì thực sự xảy ra lúc chạy.">AI debugging assistant for Arduino Uno and ESP32 labs: it adds a trace to your sketch, you run it in Wokwi or on the real board, and the diagnosis is grounded in what actually happened at runtime.</p>
+        <div class="tags"><span>Python</span><span>Gradio</span><span>Arduino</span><span>ESP32</span></div>
+        <p style="margin-top:14px"><a href="https://github.com/namduong-dev1809/nostacktrace" target="_blank" rel="noopener" data-vi="Mã nguồn →">Code on GitHub →</a></p>
+      </article>
       <article class="card reveal">
         <div class="media"><img src="images/robot.png" alt="Maze Runner Robot with Arduino, ultrasonic sensors and wiring" loading="lazy"></div>
         <span class="label">Lead Developer &amp; Hardware Designer</span>
         <h3>Autonomous Maze Runner Robot</h3>
-        <p>Developed a navigation algorithm allowing the robot to autonomously detect and solve mazes. Optimized motor control via PWM for smoother turns and higher stability.</p>
+        <p data-vi="Thuật toán giúp robot tự dò và thoát mê cung. Tinh chỉnh điều khiển động cơ bằng PWM để rẽ mượt và chạy ổn định hơn.">Developed a navigation algorithm allowing the robot to autonomously detect and solve mazes. Optimized motor control via PWM for smoother turns and higher stability.</p>
         <div class="tags"><span>Arduino Uno</span><span>Ultrasonic Sensors</span><span>L298N</span><span>C++</span></div>
-        <p style="margin-top:14px"><a href="https://github.com/namduong-dev1809/maze-runner-robot" target="_blank" rel="noopener">View code on GitHub →</a></p>
-      </article>
-      <article class="card reveal">
-        <div class="media"><img src="images/newton.webp" alt="Team holding the Newton's Cradle model" loading="lazy"></div>
-        <span class="label">Technical Supporter &amp; Data Analyst</span>
-        <h3>Newton's Cradle Physics Model</h3>
-        <p>Assisted in the precise physical assembly of the model. Calculated and verified key physical parameters for the "Newton's Laws of Motion" report, ensured accurate data collection and supported team coordination.</p>
-        <div class="tags"><span>Mechanical Assembly</span><span>Momentum &amp; Energy</span><span>Technical Reporting</span></div>
-      </article>
-    </div>
-  </section>
-
-  <section id="journal">
-    <div class="head reveal"><span class="num">03 /</span><h2 data-vi="Nhật ký học tập">Learning Journal</h2></div>
-    <div class="grid">
-      <article class="card reveal">
-        <span class="label">Hardware · Firmware</span>
-        <h3>Maze Runner Robot: Bridging the Gap between Code and Hardware</h3>
-        <p>Building an autonomous robot was my first real-world lesson in embedded logic. The biggest hurdle was sensor interference: the HC-SR04 sensors often gave erratic data due to wall reflections.</p>
-        <p><b>The fix:</b> calibrated the PWM speed of each motor on the L298N so the robot drives straight, and added side-wall corrections. Later, in v2, I added an echo timeout and a short gap between sensor pings to stop crosstalk (<a href="https://github.com/namduong-dev1809/maze-runner-robot" target="_blank" rel="noopener">code on GitHub</a>).</p>
-        <p><b>Takeaway:</b> hardware is unpredictable; robust firmware must account for physical environmental noise.</p>
-      </article>
-      <article class="card reveal">
-        <span class="label">Industry visit</span>
-        <h3>Industrial Insights from F-Complex (FPT Software)</h3>
-        <p>Witnessing the professional workflow at FPT Software was a turning point. Technical skills are only half the battle. To excel in the industry, one must master technical documentation, large-scale teamwork and professional communication, which is why I am dedicated to my IELTS preparation.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="head reveal"><span class="num">04 /</span><h2 data-vi="Học vấn &amp; hoạt động">Education &amp; Activities</h2></div>
-    <div class="grid">
-      <div class="card reveal">
-        <span class="label">Since Sep 2025</span>
-        <h3>University of Science and Technology — The University of Da Nang (DUT)</h3>
-        <p class="meta">Da Nang, Vietnam</p>
-        <p>Bachelor of Engineering in Embedded Systems and Internet of Things (Advanced Program).</p>
-      </div>
-      <article class="card reveal">
-        <div class="media"><img src="images/fastcup.webp" alt="Team photo at the Fast Cup 2026 football tournament" loading="lazy"></div>
-        <span class="label">April 2026 · DUT</span>
-        <h3>Fast Cup 2026</h3>
-        <p>Took part in the traditional men's football tournament organized by the FAST Faculty Youth Union of DUT.</p>
+        <p style="margin-top:14px"><a href="https://github.com/namduong-dev1809/maze-runner-robot" target="_blank" rel="noopener" data-vi="Mã nguồn →">View code on GitHub →</a></p>
       </article>
     </div>
   </section>
 
   <section id="skills">
-    <div class="head reveal"><span class="num">05 /</span><h2 data-vi="Kỹ năng &amp; ngoại ngữ">Skills &amp; Languages</h2></div>
+    <div class="head reveal"><span class="num">03 /</span><h2 data-vi="Kỹ năng">Skills</h2></div>
     <div class="bento">
       <div class="card reveal">
-        <h3 class="ih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Programming</h3>
-        <ul><li><b>Core:</b> C, C++ (firmware &amp; microcontrollers)</li><li><b>Supplementary:</b> Python</li></ul>
+        <h3 class="ih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h18v18H3zM3 9h18M9 3v18"/></svg><span data-vi="Tự động hóa">Automation</span></h3>
+        <ul><li>Google Apps Script, Google Sheets, Gmail, Drive</li><li>n8n workflows</li></ul>
       </div>
       <div class="card reveal">
-        <h3 class="ih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>Hardware</h3>
-        <ul><li><b>Platforms:</b> Arduino (Uno / Nano)</li><li><b>Peripherals:</b> ultrasonic sensors, IR sensors, L298N motor drivers</li></ul>
+        <h3 class="ih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Web</h3>
+        <ul><li>HTML, CSS, JavaScript, TypeScript</li><li>Next.js, Tailwind CSS, Vercel</li></ul>
       </div>
-      <div class="card tall reveal">
-        <div class="media whole"><img src="images/certificate.webp" alt="Certificate: Third Prize in Physics, Quang Nam provincial competition 2024–2025" loading="lazy"></div>
-        <h3 class="ih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg>Problem Solving</h3>
-        <p>Strong analytical thinking, evidenced by a Third Prize in the Provincial Physics Competition.</p>
+      <div class="card reveal">
+        <h3 class="ih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg><span data-vi="Nhúng">Embedded</span></h3>
+        <ul><li>C, C++, Python</li><li>Arduino Uno / Nano, ultrasonic &amp; IR sensors, L298N motor drivers</li></ul>
       </div>
       <div class="card wide reveal">
-        <h3 class="ih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>Languages &amp; Teamwork</h3>
-        <ul><li>Vietnamese (native), English (IELTS candidate, academic focus)</li><li>Collaborated in an 8-member team, handling task delegation and coordination</li></ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="head reveal"><span class="num">06 /</span><h2 data-vi="Giới thiệu">About</h2></div>
-    <p class="quote reveal">A dedicated Embedded Systems &amp; IoT student at Danang University of Science and Technology (DUT). Combines technical rigor with strong teamwork and communication skills, currently aiming for a high IELTS band.</p>
-    <div class="grid">
-      <div class="card reveal">
-        <span class="label">Self-evaluation</span>
-        <h3>Strengths</h3>
-        <ul>
-          <li><b>Strong planning:</b> clear steps, diagrams and scripts before starting any project.</li>
-          <li><b>High responsibility:</b> clear group roles, owning and correcting mistakes.</li>
-          <li><b>Fast learning:</b> quickly picks up new concepts, tools and technologies.</li>
-        </ul>
+        <h3 class="ih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><span data-vi="Ngôn ngữ &amp; làm việc">Languages &amp; working style</span></h3>
+        <ul><li data-vi="Tiếng Việt (bản ngữ), tiếng Anh (đang luyện IELTS, đọc tài liệu kỹ thuật hằng ngày)">Vietnamese (native), English (IELTS candidate, reads technical documentation daily)</li><li data-vi="Báo tiến độ rõ ràng, giao kèm hướng dẫn, làm việc theo giờ GMT+7">Clear progress updates, written handover guides, GMT+7 working hours</li></ul>
       </div>
       <div class="card reveal">
-        <span class="label">Self-evaluation</span>
-        <h3>Areas to improve</h3>
-        <ul>
-          <li><b>Comfort zone:</b> working more with new people, not only familiar friends.</li>
-          <li><b>Time management:</b> balancing heavy studies with hobbies.</li>
-          <li><b>Overthinking:</b> deciding faster instead of over-analyzing details.</li>
-        </ul>
-      </div>
-      <div class="card reveal">
-        <span class="label">Collaboration style</span>
-        <h3>The Creator</h3>
-        <p>A Creative Strategist: bold technical ideas grounded in structured execution and accountability.</p>
-        <ul>
-          <li>Innovative thinking around hardware and coding constraints</li>
-          <li>Strategic planning into actionable steps and timelines</li>
-          <li>Strong responsibility for every milestone</li>
-          <li>Adaptable execution when practical issues arise</li>
-          <li>Technical vision from concept to working prototype</li>
-        </ul>
-      </div>
-      <div class="card reveal">
-        <span class="label">Personality</span>
-        <h3>ISTP</h3>
-        <ul>
-          <li><b>Hands-on:</b> hardware assembly, wiring and integration</li>
-          <li><b>Rapid troubleshooting</b> during live testing</li>
-          <li><b>Resourceful:</b> practical workarounds for microcontroller limits</li>
-          <li><b>Independent focus</b> on core technical modules</li>
-          <li><b>Technical anchor</b> in large team projects</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="resume">
-    <div class="head reveal"><span class="num">07 /</span><h2 data-vi="CV">Resume</h2></div>
-    <div class="resume reveal">
-      <a href="resume.html" target="_blank" rel="noopener"><img src="images/resume.webp" alt="Resume of Dương Thành Nam" loading="lazy" width="1080" height="1527"></a>
-      <div>
-        <p data-vi="Tóm tắt một trang về học vấn, dự án web, kinh nghiệm và kỹ năng.">A one-page summary of my education, web projects, experience and skills.</p>
-        <div class="actions" style="margin-top:0">
-          <a class="btn primary" href="resume.pdf" download><span data-vi="Tải PDF">Download PDF</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></a>
-          <a class="btn ghost" href="resume.html" target="_blank" rel="noopener"><span data-vi="Xem toàn trang">Open full size</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pdp">
-    <div class="head reveal"><span class="num">08 /</span><h2 data-vi="Kế hoạch phát triển bản thân">Personal Development Plan</h2></div>
-    <div class="grid">
-      <div class="card reveal">
-        <span class="label">Objective I</span>
-        <h3>Graduate with Honors in the ES&amp;IoT Advanced Program</h3>
-        <p>Master engineering foundations and practical Edge AI integration for a standout Capstone Project.</p>
-        <ul>
-          <li><b>Year 2:</b> ace core STEM subjects; move from basic Arduino to complex microcontrollers.</li>
-          <li><b>Year 3:</b> specialized ES&amp;IoT coursework; research Edge AI deployment and define the thesis.</li>
-          <li><b>Year 4:</b> build, test and defend the Capstone system.</li>
-          <li><b>Tracking:</b> GPA every semester; Gantt chart for Capstone deadlines.</li>
-        </ul>
-      </div>
-      <div class="card reveal">
-        <span class="label">Objective II</span>
-        <h3>Achieve IELTS 6.5+</h3>
-        <p>Learn English daily through original technical textbooks, datasheets and engineering communication.</p>
-        <ul>
-          <li><b>Foundation:</b> reading comprehension and academic vocabulary.</li>
-          <li><b>Acceleration:</b> intensive exam prep; speaking for technical presentations.</li>
-          <li><b>Application:</b> write reports and defend projects fully in English.</li>
-          <li><b>Tracking:</b> weekly reading hours, monthly mock scores, fixed test date.</li>
-        </ul>
+        <h3 class="ih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg><span data-vi="Về mình">More about me</span></h3>
+        <p data-vi="Học vấn, CV, nhật ký học tập và kế hoạch phát triển: &lt;a href=&quot;about.html&quot;&gt;xem trang Về mình →&lt;/a&gt;">Education, resume, learning journal and development plan: <a href="about.html">see the About page →</a></p>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <div class="contact reveal">
-      <span class="num head" style="font-family:var(--mono);color:var(--accent);font-size:.85rem" data-vi="09 / Liên hệ">09 / Contact</span>
-      <h2 data-vi="Cần làm website? Nhắn mình nhé.">Need a website? Let's talk.</h2>
-      <p data-vi="Nhận làm website cho doanh nghiệp nhỏ ở Đà Nẵng và nước ngoài. Cũng sẵn sàng thực tập về hệ thống nhúng &amp; IoT.">Website projects for small businesses in Da Nang and abroad. Also open to internships in embedded systems &amp; IoT.</p>
+      <span class="num head" style="font-family:var(--mono);color:var(--accent);font-size:.85rem" data-vi="04 / Liên hệ">04 / Contact</span>
+      <h2 data-vi="Cần tự động hóa hay làm website? Nhắn mình nhé.">Need an automation or a website? Let's talk.</h2>
+      <p data-vi="Nhận dự án cho doanh nghiệp nhỏ ở Đà Nẵng và nước ngoài. Cũng sẵn sàng thực tập về hệ thống nhúng &amp; IoT.">Projects for small businesses in Da Nang and abroad. Also open to internships in embedded systems &amp; IoT.</p>
       <div class="actions">
         <a class="btn primary" href="mailto:dtnam2007bk@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>dtnam2007bk@gmail.com</a>
@@ -449,29 +193,6 @@
 
   <footer>© 2026 Dương Thành Nam · Built with HTML &amp; CSS</footer>
 </div>
-<script>
-  // shortcut: no-IO browsers just show everything, which is fine
-  const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  }), { rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
-
-  // VI/EN: elements with data-vi hold the Vietnamese HTML; English stays in the markup.
-  // shortcut: only client-facing parts (nav, hero, services, contact, headings) are translated, extend data-vi if needed
-  const langBtn = document.querySelector('.lang');
-  const tr = [...document.querySelectorAll('[data-vi]')];
-  tr.forEach(el => el.dataset.en = el.innerHTML);
-  function setLang(lang) {
-    tr.forEach(el => el.innerHTML = el.dataset[lang]);
-    document.documentElement.lang = lang;
-    langBtn.textContent = lang === 'vi' ? 'EN' : 'VI';
-    langBtn.setAttribute('aria-label', lang === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt');
-    try { localStorage.setItem('lang', lang); } catch (e) {}
-  }
-  let saved = null;
-  try { saved = localStorage.getItem('lang'); } catch (e) {}
-  setLang(saved || (navigator.language.startsWith('vi') ? 'vi' : 'en'));
-  langBtn.addEventListener('click', () => setLang(document.documentElement.lang === 'vi' ? 'en' : 'vi'));
-</script>
+<script src="site.js"></script>
 </body>
 </html>
